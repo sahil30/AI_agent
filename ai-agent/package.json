@@ -1,0 +1,26 @@
+{
+  "name": "ai-integration-agent",
+  "version": "1.0.0",
+  "description": "AI agent for integrating with Jira, Confluence, and Java code processing",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "node-java-parser": "^0.3.0",
+    "openai": "^4.20.0",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "keywords": ["ai", "jira", "confluence", "java", "automation"],
+  "author": "",
+  "license": "MIT"
+}
