@@ -48,13 +48,25 @@ cp .env.example .env
 
 ## Configuration
 
-### Option A: Standard Confluence API
+### Option A: Standard Confluence API (Bearer Token)
+```bash
+# .env file
+CONFLUENCE_BASE_URL=https://your-domain.atlassian.net/wiki
+CONFLUENCE_ACCESS_TOKEN=your-confluence-access-token
+USE_CUSTOM_API=false
+USE_BEARER_TOKEN=true
+LOG_LEVEL=INFO
+MAX_RESULTS_DEFAULT=25
+```
+
+### Option A (Legacy): Standard Confluence API (Username + API Token)
 ```bash
 # .env file
 CONFLUENCE_BASE_URL=https://your-domain.atlassian.net/wiki
 CONFLUENCE_USERNAME=your-email@example.com
 CONFLUENCE_API_TOKEN=your-confluence-api-token
 USE_CUSTOM_API=false
+USE_BEARER_TOKEN=false
 LOG_LEVEL=INFO
 MAX_RESULTS_DEFAULT=25
 ```

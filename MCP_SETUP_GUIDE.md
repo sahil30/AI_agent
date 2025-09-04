@@ -76,12 +76,21 @@ JIRA_API_TOKEN=your-jira-api-token
 USE_CUSTOM_API=false
 ```
 
-**Confluence (.env)**:
+**Confluence (.env)** - Bearer Token (Recommended):
+```bash
+CONFLUENCE_BASE_URL=https://your-domain.atlassian.net/wiki
+CONFLUENCE_ACCESS_TOKEN=your-confluence-access-token
+USE_CUSTOM_API=false
+USE_BEARER_TOKEN=true
+```
+
+**Confluence (.env)** - Legacy Username/Token:
 ```bash
 CONFLUENCE_BASE_URL=https://your-domain.atlassian.net/wiki
 CONFLUENCE_USERNAME=your-email@example.com
 CONFLUENCE_API_TOKEN=your-confluence-api-token
 USE_CUSTOM_API=false
+USE_BEARER_TOKEN=false
 ```
 
 ### Custom APIs

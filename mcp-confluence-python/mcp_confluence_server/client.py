@@ -61,11 +61,23 @@ class ConfluenceClient:
                 'Accept': 'application/json',
             })
         else:
-            self.session.auth = (config.confluence.username, config.confluence.api_token)
-            self.session.headers.update({
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            })
+            # Standard Confluence API authentication
+            if config.server.use_bearer_token and config.confluence.access_token:
+                # Use Bearer token authentication
+                self.session.headers.update({
+                    'Authorization': f'Bearer {config.confluence.access_token}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                })
+            elif config.confluence.username and config.confluence.api_token:
+                # Use legacy basic auth with username/token
+                self.session.auth = (config.confluence.username, config.confluence.api_token)
+                self.session.headers.update({
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                })
+            else:
+                raise ValueError("No valid authentication method configured. Please set either CONFLUENCE_ACCESS_TOKEN or both CONFLUENCE_USERNAME and CONFLUENCE_API_TOKEN")
 
     def get_page(self, page_id: str, expand: Optional[List[str]] = None) -> ConfluencePage:
         """Get a specific page by ID."""
