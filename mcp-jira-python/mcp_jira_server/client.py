@@ -74,11 +74,21 @@ class JiraClient:
                 'Accept': 'application/json',
             })
         else:
-            self.session.auth = (config.jira.username, config.jira.api_token)
-            self.session.headers.update({
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            })
+            # Standard Jira API authentication
+            if config.server.use_bearer_token and config.jira.access_token:
+                # Use Bearer token authentication
+                self.session.headers.update({
+                    'Authorization': f'Bearer {config.jira.access_token}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                })
+            else:
+                # Use basic authentication (username + API token)
+                self.session.auth = (config.jira.username, config.jira.api_token)
+                self.session.headers.update({
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                })
 
     def get_issue(self, issue_key: str) -> JiraIssue:
         """Get a specific issue by key."""

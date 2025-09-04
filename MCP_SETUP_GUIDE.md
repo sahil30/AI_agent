@@ -70,12 +70,21 @@ Edit your Claude Desktop configuration file:
 
 ### Standard Atlassian APIs
 
-**Jira (.env)**:
+**Jira (.env)** - Bearer Token (Recommended):
+```bash
+JIRA_BASE_URL=https://your-domain.atlassian.net
+JIRA_ACCESS_TOKEN=your-jira-access-token
+USE_CUSTOM_API=false
+USE_BEARER_TOKEN=true
+```
+
+**Jira (.env)** - Legacy Username/Token:
 ```bash
 JIRA_BASE_URL=https://your-domain.atlassian.net
 JIRA_USERNAME=your-email@example.com
 JIRA_API_TOKEN=your-jira-api-token
 USE_CUSTOM_API=false
+USE_BEARER_TOKEN=false
 ```
 
 **Confluence (.env)** - Bearer Token (Recommended):
