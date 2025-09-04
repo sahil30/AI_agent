@@ -1,0 +1,21 @@
+# MCP Confluence Server Requirements - Python 3.12+
+
+# Core MCP Framework
+mcp>=1.0.0
+
+# HTTP client for API requests
+requests>=2.31.0
+
+# Configuration management
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+
+# Type hints support
+typing-extensions>=4.8.0
+
+# Development dependencies (optional)
+# Uncomment for development
+# pytest>=7.0
+# black>=23.0
+# flake8>=6.0
+# mypy>=1.0

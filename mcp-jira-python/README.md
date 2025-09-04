@@ -37,6 +37,10 @@ cd mcp-jira-python
 
 2. Install dependencies:
 ```bash
+# Option 1: Install from requirements.txt
+pip install -r requirements.txt
+
+# Option 2: Install as package (includes dependencies)
 pip install -e .
 ```
 

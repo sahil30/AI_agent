@@ -15,11 +15,13 @@ This guide shows you how to set up both the Jira and Confluence MCP servers for 
 ```bash
 # Jira MCP Server
 cd mcp-jira-python
-pip install -e .
+pip install -r requirements.txt
+# OR: pip install -e .
 
 # Confluence MCP Server  
 cd ../mcp-confluence-python
-pip install -e .
+pip install -r requirements.txt
+# OR: pip install -e .
 ```
 
 2. **Configure environment variables**:
@@ -239,7 +241,7 @@ POST   /v1/pages/{id}/comments      # Add comment
 
 **Server not starting:**
 - Check Python version (3.12+ required)
-- Verify all dependencies installed: `pip install -e .`
+- Verify all dependencies installed: `pip install -r requirements.txt` or `pip install -e .`
 - Check .env file exists and has correct values
 
 **Authentication errors:**
